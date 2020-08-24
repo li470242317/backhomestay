@@ -5,10 +5,10 @@ server:
 
 spring:
   datasource: # 数据源
-    url: jdbc:oracle:thin:@localhost:1521:orcl
-    driver-class-name: oracle.jdbc.OracleDriver
-    username: scott
-    password: 123qwe
+    username: root
+    password: 123@qwe
+    url: jdbc:mysql://localhost:3306/homestay?useSSL=false&serverTimezone=Hongkong&characterEncoding=utf-8&autoReconnect=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
   messages:
     encoding: UTF-8
   resources: # 静态资源路径

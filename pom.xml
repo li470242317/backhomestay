@@ -13,7 +13,6 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>aaa</name>
     <description>Demo project for Spring Boot</description>
-
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>Hoxton.SR7</spring-cloud.version>
@@ -75,6 +74,11 @@
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.11</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
