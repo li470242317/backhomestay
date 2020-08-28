@@ -22,8 +22,8 @@ public class AccountController {
     AccountDao accountDao;
     @RequestMapping("Login")
     @ResponseBody
-    public Account  Login(@RequestBody Account account){
-        Account accounts=accountDao.selectOne(account);
+    public List<Map<String,Object>>  Login(@RequestBody Account account){
+        List<Map<String,Object>>accounts=accountDao.Login(account.getAcc_name(),account.getAcc_pwd());
         return accounts;
     }
 

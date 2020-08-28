@@ -1,6 +1,7 @@
 package com.aaa.dao;
 
 import com.aaa.entity.Position;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -19,4 +20,14 @@ public interface PositionDao extends Mapper<Position> {
 
     @Update("update position set pos_name=#{pos_name},man_id=#{man_id} where pos_id=#{pos_id}")
     Integer position_update(Position position);
+    @Select("\n" +
+            "select poa.pow_id,po.pow_name from  \n" +
+            "power_allot poa \n" +
+            "join power po on poa.pow_id=po.pow_id\n" +
+            "where poa.pos_id=#{pos_id} and po.power_ids!=0 ")
+    List<Map<String,Object>> queryId(Integer pos_id);
+    @Delete("delete from power_allot where pos_id=#{pos_id}")
+    Integer deleteId(Integer pos_id);
+    @Insert("insert into power_allot (pos_id,pow_id) values (#{pos_id},#{pow_id})")
+    Integer saveId(Integer pos_id,Integer pow_id);
 }

@@ -1,6 +1,11 @@
 package com.aaa.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+
 public class Power {
+    @Id
+    @Column
     private Integer pow_id;
     private String pow_name;
     private String pow_url;

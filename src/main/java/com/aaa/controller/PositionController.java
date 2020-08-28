@@ -33,4 +33,22 @@ public class PositionController {
     public int update(Position position){
         return positionDao.position_update(position);
     }
+    @RequestMapping("queryId")
+    @ResponseBody
+    public List<Map<String,Object>> queryId(Integer pos_id){
+        return positionDao.queryId(pos_id);
+    }
+    @RequestMapping("saveId")
+    @ResponseBody
+    public Integer saveId(Integer pos_id,Integer[] pow_id){
+        int count=0;
+        if(pos_id!=null){
+            positionDao.deleteId(pos_id);
+            for (Integer p:pow_id){
+                positionDao.saveId(pos_id,p);
+                count++;
+            }
+        }
+        return count;
+    }
 }
