@@ -51,7 +51,7 @@ public class EmployeeController {
     @RequestMapping("employee_add")
     @ResponseBody
     public int add(Employee employee){
-
+        System.out.println(employee);
         return employeeDao.add(employee);
     }
     @RequestMapping("employee_update")
