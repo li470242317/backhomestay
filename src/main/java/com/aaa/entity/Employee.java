@@ -8,7 +8,7 @@ public class Employee {
     private String emp_phone;
     private String emp_address;
     private String emp_card;
-    private String entryDate;
+    private String hiredate;
     private String dimission;
 
     public Integer getEmp_id() {
@@ -67,12 +67,12 @@ public class Employee {
         this.emp_card = emp_card;
     }
 
-    public String getEntryDate() {
-        return entryDate;
+    public String getHiredate() {
+        return hiredate;
     }
 
-    public void setEntryDate(String entryDate) {
-        this.entryDate = entryDate;
+    public void setHiredate(String hiredate) {
+        this.hiredate = hiredate;
     }
 
     public String getDimission() {
@@ -93,7 +93,7 @@ public class Employee {
                 ", emp_phone='" + emp_phone + '\'' +
                 ", emp_address='" + emp_address + '\'' +
                 ", emp_card='" + emp_card + '\'' +
-                ", entryDate='" + entryDate + '\'' +
+                ", hiredate='" + hiredate + '\'' +
                 ", dimission='" + dimission + '\'' +
                 '}';
     }
