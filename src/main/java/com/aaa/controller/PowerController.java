@@ -1,14 +1,10 @@
 package com.aaa.controller;
 
-import com.aaa.dao.FunctionsDao;
 import com.aaa.dao.PowerDao;
 import com.aaa.dao.RelevanceDao;
-import com.aaa.entity.Account;
 import com.aaa.entity.Power;
-import com.aaa.entity.Relevance;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 

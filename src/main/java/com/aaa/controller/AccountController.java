@@ -36,7 +36,10 @@ public class AccountController {
     @RequestMapping("account_update")
     @ResponseBody
     public int  update(Account account){
-        return accountDao.update(account);
+        System.out.println(account);
+        Integer update = accountDao.update(account);
+        System.out.println(update);
+        return update;
     }
 
     @RequestMapping("account_add")

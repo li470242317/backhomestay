@@ -18,7 +18,7 @@ public interface AccountDao extends tk.mybatis.mapper.common.Mapper<Account> {
     @Insert("insert into account(acc_name,acc_pwd,acc_state,emp_id) values(#{acc_name},#{acc_pwd},#{acc_state},#{emp_id})")
     Integer add(Account account);
 
-    @Update("update account set acc_state=#{acc_state} where acc_id=#{acc_id}")
+    @Update("update account set acc_pwd=#{acc_pwd},acc_state=#{acc_state} where acc_id=#{acc_id}")
     Integer update(Account account);
 
     @Update("update account set acc_pwd='123456'  where acc_id=#{acc_id}")

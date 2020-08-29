@@ -22,5 +22,7 @@ public interface Order_appraiseDao extends Mapper<Order_appraise> {
             "\n")
     List<Map<String,Object>> query();
 
+    @Select("select count(oa_id) from order_appraise")
+    public int totalCount();
 
 }

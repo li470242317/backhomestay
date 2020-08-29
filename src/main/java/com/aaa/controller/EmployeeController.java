@@ -22,32 +22,9 @@ public class EmployeeController {
 
     @RequestMapping("employee_query")
     @ResponseBody
-    /*public List<Employee> query(){
+    public List<Employee> query(){
         return employeeDao.selectAll();
-    }*/
-    public PageHelpers<Employee> listAll(PageHelpers<Employee> ph){
-        PageHelper.startPage(ph.getPageNum(),ph.getPageSize());
-        List<Employee> employees=employeeDao.selectAll();
-        ph.setRows(employees);
-        PageInfo<Employee> pageInfo=new PageInfo<Employee>(employees);
-        int pages=pageInfo.getPages();
-        ph.setLastPage(pages);
-        ph.setTotalCount(employeeDao.totalCount());
-        return ph;
     }
-    /*
-    *  public PageHelpers<Teacher> listAll(PageHelpers<Teacher> ph){
-        /*System.out.println(teacherDao.selectAll());
-        return teacherDao.selectAll();*/
-        /*PageHelper.startPage(ph.getPageNum(),ph.getPageSize());
-    List<Teacher> teachers = teacherDao.selectAll();
-        ph.setRows(teachers);
-    PageInfo<Teacher> pageInfo = new PageInfo<Teacher>(teachers);
-    int pages = pageInfo.getPages();
-        ph.setLastPage(pages);
-        ph.setTotalCount(teacherDao.totalCount());
-        return ph;*/
-
     @RequestMapping("employee_add")
     @ResponseBody
     public int add(Employee employee){

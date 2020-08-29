@@ -1,7 +1,11 @@
 package com.aaa.controller;
 
 import com.aaa.dao.ManagerDao;
+import com.aaa.entity.Employee;
 import com.aaa.entity.Manager;
+import com.aaa.util.PageHelpers;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +26,6 @@ public class ManagerController {
     public List<Manager> query(){
         return managerDao.selectAll();
     }
-
     @RequestMapping("manager_add")
     @ResponseBody
     public int add(Manager manager){
