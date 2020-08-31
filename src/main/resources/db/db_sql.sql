@@ -27,15 +27,16 @@ CREATE TABLE IF NOT EXISTS `account` (
   PRIMARY KEY (`acc_id`),
   KEY `FK_account_employee` (`emp_id`),
   CONSTRAINT `FK_account_employee` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`emp_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='员工账号表';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='员工账号表';
 
--- 正在导出表  homestay.account 的数据：~2 rows (大约)
+-- 正在导出表  homestay.account 的数据：~5 rows (大约)
 DELETE FROM `account`;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
 INSERT INTO `account` (`acc_id`, `acc_name`, `acc_pwd`, `acc_state`, `emp_id`) VALUES
 	(1, 'zs', '123456', 0, 1),
 	(2, 'ls', '123456', 0, 2),
-	(3, 'ww', '123456', 0, 3);
+	(3, 'ww', '123456', 0, 3),
+	(4, '1', '123', 1, 1);
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 
 
@@ -49,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `bank` (
   PRIMARY KEY (`ba_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='前台账号表';
 
--- 正在导出表  homestay.bank 的数据：~0 rows (大约)
+-- 正在导出表  homestay.bank 的数据：~2 rows (大约)
 DELETE FROM `bank`;
 /*!40000 ALTER TABLE `bank` DISABLE KEYS */;
 INSERT INTO `bank` (`ba_id`, `ba_name`, `ba_phone`, `ba_pwd`) VALUES
@@ -82,11 +83,11 @@ CREATE TABLE IF NOT EXISTS `client` (
   CONSTRAINT `FK_client_bank` FOREIGN KEY (`ba_id`) REFERENCES `bank` (`ba_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='客户表';
 
--- 正在导出表  homestay.client 的数据：~0 rows (大约)
+-- 正在导出表  homestay.client 的数据：~2 rows (大约)
 DELETE FROM `client`;
 /*!40000 ALTER TABLE `client` DISABLE KEYS */;
 INSERT INTO `client` (`cli_id`, `cli_name`, `cli_sex`, `cli_phone`, `cli_date`, `cli_place`, `cli_money`, `cli_email`, `cli_sparephone`, `cli_qq`, `cli_wechat`, `cli_referral`, `cli_prc`, `cli_rank`, `cli_price`, `ba_id`) VALUES
-	(1, '曾照云', '女', '159388227681', '2001-08-24', '河南郑州', 0, '123@qq.com', '159388227681', '123', '159388227681', '来自aaa', '1.png', 0, 0, 1),
+	(1, '曾照云', '女', '159388227681', '2001-08-24', '河南郑州', 0, '123@qq.com', '159388227681', '123', '159388227681', '来自aaa', '1.png', 1, 0, 1),
 	(2, '李梦岩', '女', '159388227681', '2001-08-24', '河南郑州', 0, '123@qq.com', '159388227681', '123', '159388227681', '来自aaa', '1.png', 0, 0, 2);
 /*!40000 ALTER TABLE `client` ENABLE KEYS */;
 
@@ -120,18 +121,26 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `emp_phone` varchar(50) NOT NULL,
   `emp_address` varchar(50) NOT NULL,
   `emp_card` varchar(50) NOT NULL,
-  `entryDate` varchar(50) NOT NULL,
+  `hiredate` varchar(50) NOT NULL,
   `dimission` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`emp_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='员工表';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='员工表';
 
--- 正在导出表  homestay.employee 的数据：~2 rows (大约)
+-- 正在导出表  homestay.employee 的数据：~11 rows (大约)
 DELETE FROM `employee`;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` (`emp_id`, `emp_name`, `emp_sex`, `emp_age`, `emp_phone`, `emp_address`, `emp_card`, `entryDate`, `dimission`) VALUES
+INSERT INTO `employee` (`emp_id`, `emp_name`, `emp_sex`, `emp_age`, `emp_phone`, `emp_address`, `emp_card`, `hiredate`, `dimission`) VALUES
 	(1, '张三', '男', 25, '14758425698', '河南郑州', '412545199505041256', '2020-08-22', NULL),
 	(2, '李四', '女', 26, '14754515698', '河南郑州', '412545199405041256', '2020-08-22', NULL),
-	(3, '王五', '女', 26, '14754515698', '河南郑州', '422545199405041256', '2020-08-22', NULL);
+	(3, '王五', '女', 26, '14754515698', '河南郑州', '422545199405041256', '2020-08-22', NULL),
+	(4, '王五', '女', 26, '14754515698', '河南郑州', '422545199405041256', '2020-08-22', NULL),
+	(5, '王五', '女', 26, '14754515698', '河南郑州', '422545199405041256', '2020-08-22', NULL),
+	(6, '王五', '女', 26, '14754515698', '河南郑州', '422545199405041256', '2020-08-22', NULL),
+	(7, '王五', '女', 26, '14754515698', '河南郑州', '422545199405041256', '2020-08-22', NULL),
+	(8, '掌声', '男', 12, '1234567891', '河南', '41254852698541', '2020-08-28T16:00:00.000Z', NULL),
+	(9, '1', '1', 1, '1', '1', '1', '2020-08-28T16:00:00.000Z', NULL),
+	(10, '1', '1', 1, '1', '1', '1', '2020-08-28T16:00:00.000Z', NULL),
+	(11, '1', '1', 1, '1', '1', '1', '2020-08-28T16:00:00.000Z', NULL);
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 
 
@@ -145,15 +154,14 @@ CREATE TABLE IF NOT EXISTS `facility` (
   `fac_kettle` int(11) NOT NULL DEFAULT '0',
   `fac_lift` int(11) NOT NULL DEFAULT '0',
   `fac_cereal` int(11) NOT NULL DEFAULT '0',
-  `fac_prc` int(11) DEFAULT NULL,
-  `fac_title` int(11) NOT NULL,
-  `fac_describe` int(11) NOT NULL,
-  `fac_path` int(11) NOT NULL,
-  `fac_rim` int(11) NOT NULL,
-  `fac_landmark` int(11) NOT NULL,
-  `fac_market` int(11) NOT NULL,
-  `fac_photoprc` int(11) NOT NULL,
-  `fac_expiredate` int(11) NOT NULL,
+  `fac_prc` varchar(50) DEFAULT NULL,
+  `fac_describe` varchar(50) NOT NULL,
+  `fac_path` varchar(50) NOT NULL,
+  `fac_rim` varchar(50) NOT NULL,
+  `fac_landmark` varchar(50) NOT NULL,
+  `fac_market` varchar(50) NOT NULL,
+  `fac_photoprc` varchar(50) NOT NULL,
+  `fac_expiredate` varchar(50) NOT NULL,
   `hou_id` int(11) NOT NULL,
   PRIMARY KEY (`fac_id`),
   KEY `FK_facility_house` (`hou_id`),
@@ -166,23 +174,23 @@ DELETE FROM `facility`;
 /*!40000 ALTER TABLE `facility` ENABLE KEYS */;
 
 
--- 导出  表 homestay.function 结构
-DROP TABLE IF EXISTS `function`;
-CREATE TABLE IF NOT EXISTS `function` (
+-- 导出  表 homestay.functions 结构
+DROP TABLE IF EXISTS `functions`;
+CREATE TABLE IF NOT EXISTS `functions` (
   `fun_id` int(11) NOT NULL AUTO_INCREMENT,
   `fun_name` varchar(50) NOT NULL,
   PRIMARY KEY (`fun_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='功能表';
 
--- 正在导出表  homestay.function 的数据：~4 rows (大约)
-DELETE FROM `function`;
-/*!40000 ALTER TABLE `function` DISABLE KEYS */;
-INSERT INTO `function` (`fun_id`, `fun_name`) VALUES
+-- 正在导出表  homestay.functions 的数据：~4 rows (大约)
+DELETE FROM `functions`;
+/*!40000 ALTER TABLE `functions` DISABLE KEYS */;
+INSERT INTO `functions` (`fun_id`, `fun_name`) VALUES
 	(1, 'add'),
 	(2, 'select'),
 	(3, 'update'),
 	(4, 'delete');
-/*!40000 ALTER TABLE `function` ENABLE KEYS */;
+/*!40000 ALTER TABLE `functions` ENABLE KEYS */;
 
 
 -- 导出  表 homestay.house 结构
@@ -195,6 +203,7 @@ CREATE TABLE IF NOT EXISTS `house` (
   `hou_bdcount` int(11) NOT NULL,
   `hou_drcount` int(11) NOT NULL,
   `hou_kitcount` int(11) NOT NULL,
+  `hou_name` varchar(50) NOT NULL,
   `hou_ipcount` int(11) NOT NULL,
   `hou_cmcount` int(11) NOT NULL,
   `hou_letcount` int(11) NOT NULL DEFAULT '0',
@@ -212,8 +221,8 @@ CREATE TABLE IF NOT EXISTS `house` (
 -- 正在导出表  homestay.house 的数据：~0 rows (大约)
 DELETE FROM `house`;
 /*!40000 ALTER TABLE `house` DISABLE KEYS */;
-INSERT INTO `house` (`hou_id`, `hou_address`, `hou_row`, `hou_details`, `hou_bdcount`, `hou_drcount`, `hou_kitcount`, `hou_ipcount`, `hou_cmcount`, `hou_letcount`, `rt_id`, `hou_checkcount`, `hou_bedcount`, `cli_id`) VALUES
-	(1, '郑州', '金水区', '民航路20号院未来滨河小区', 1, 1, 1, 1, 1, 1, 2, 4, 2, 1);
+INSERT INTO `house` (`hou_id`, `hou_address`, `hou_row`, `hou_details`, `hou_bdcount`, `hou_drcount`, `hou_kitcount`, `hou_name`, `hou_ipcount`, `hou_cmcount`, `hou_letcount`, `rt_id`, `hou_checkcount`, `hou_bedcount`, `cli_id`) VALUES
+	(1, '郑州', '金水区', '民航路20号院未来滨河小区', 1, 1, 1, 'aaa', 1, 1, 1, 2, 4, 2, 1);
 /*!40000 ALTER TABLE `house` ENABLE KEYS */;
 
 
@@ -223,14 +232,18 @@ CREATE TABLE IF NOT EXISTS `manager` (
   `man_id` int(11) NOT NULL AUTO_INCREMENT,
   `man_name` varchar(50) NOT NULL,
   PRIMARY KEY (`man_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='部门表';
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='部门表';
 
--- 正在导出表  homestay.manager 的数据：~2 rows (大约)
+-- 正在导出表  homestay.manager 的数据：~6 rows (大约)
 DELETE FROM `manager`;
 /*!40000 ALTER TABLE `manager` DISABLE KEYS */;
 INSERT INTO `manager` (`man_id`, `man_name`) VALUES
 	(1, '管理部门'),
-	(2, '财务部门');
+	(2, '财务部门'),
+	(7, 'aaa'),
+	(8, 'ss1'),
+	(9, '11'),
+	(10, 'sf1');
 /*!40000 ALTER TABLE `manager` ENABLE KEYS */;
 
 
@@ -267,9 +280,9 @@ INSERT INTO `message` (`mess_name`, `mess_principa`, `mess_phone`, `mess_idea`) 
 /*!40000 ALTER TABLE `message` ENABLE KEYS */;
 
 
--- 导出  表 homestay.order 结构
-DROP TABLE IF EXISTS `order`;
-CREATE TABLE IF NOT EXISTS `order` (
+-- 导出  表 homestay.orders 结构
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE IF NOT EXISTS `orders` (
   `or_id` int(11) NOT NULL AUTO_INCREMENT,
   `or_date` date DEFAULT NULL,
   `or_checkdate` date DEFAULT NULL,
@@ -287,10 +300,12 @@ CREATE TABLE IF NOT EXISTS `order` (
   CONSTRAINT `FK_order_house` FOREIGN KEY (`hou_id`) REFERENCES `house` (`hou_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='订单表';
 
--- 正在导出表  homestay.order 的数据：~0 rows (大约)
-DELETE FROM `order`;
-/*!40000 ALTER TABLE `order` DISABLE KEYS */;
-/*!40000 ALTER TABLE `order` ENABLE KEYS */;
+-- 正在导出表  homestay.orders 的数据：~0 rows (大约)
+DELETE FROM `orders`;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` (`or_id`, `or_date`, `or_checkdate`, `or_outdate`, `or_checkcount`, `or_needprice`, `or_trueprice`, `cli_id`, `hou_id`, `or_state`) VALUES
+	(1, '2020-08-27', '2020-08-27', '2020-08-28', 1, 200, 200, 1, 1, 4);
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
 
 -- 导出  表 homestay.order_appraise 结构
@@ -306,12 +321,22 @@ CREATE TABLE IF NOT EXISTS `order_appraise` (
   KEY `FK_order_appraise_client` (`cli_id`),
   KEY `FK_order_appraise_order` (`or_id`),
   CONSTRAINT `FK_order_appraise_client` FOREIGN KEY (`cli_id`) REFERENCES `client` (`cli_id`),
-  CONSTRAINT `FK_order_appraise_order` FOREIGN KEY (`or_id`) REFERENCES `order` (`or_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='订单评价表';
+  CONSTRAINT `FK_order_appraise_order` FOREIGN KEY (`or_id`) REFERENCES `orders` (`or_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='订单评价表';
 
--- 正在导出表  homestay.order_appraise 的数据：~0 rows (大约)
+-- 正在导出表  homestay.order_appraise 的数据：~9 rows (大约)
 DELETE FROM `order_appraise`;
 /*!40000 ALTER TABLE `order_appraise` DISABLE KEYS */;
+INSERT INTO `order_appraise` (`oa_id`, `cli_id`, `or_cover`, `oa_date`, `or_id`, `or_details`) VALUES
+	(1, 1, '1', '2020-08-29', 1, '好'),
+	(3, 1, '1', '2020-08-29', 1, '好'),
+	(4, 1, '1', '2020-08-29', 1, '好'),
+	(5, 1, '1', '2020-08-29', 1, '好'),
+	(7, 1, '1', '2020-08-29', 1, '好'),
+	(8, 1, '1', '2020-08-29', 1, '好'),
+	(9, 1, '1', '2020-08-29', 1, '好'),
+	(10, 1, '1', '2020-08-29', 1, '好'),
+	(11, 1, '1', '2020-08-29', 1, '好');
 /*!40000 ALTER TABLE `order_appraise` ENABLE KEYS */;
 
 
@@ -324,12 +349,14 @@ CREATE TABLE IF NOT EXISTS `order_details` (
   `or_id` int(11) NOT NULL,
   PRIMARY KEY (`od_id`),
   KEY `FK_order_details_order` (`or_id`),
-  CONSTRAINT `FK_order_details_order` FOREIGN KEY (`or_id`) REFERENCES `order` (`or_id`)
+  CONSTRAINT `FK_order_details_order` FOREIGN KEY (`or_id`) REFERENCES `orders` (`or_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='订单详情表';
 
--- 正在导出表  homestay.order_details 的数据：~0 rows (大约)
+-- 正在导出表  homestay.order_details 的数据：~1 rows (大约)
 DELETE FROM `order_details`;
 /*!40000 ALTER TABLE `order_details` DISABLE KEYS */;
+INSERT INTO `order_details` (`od_id`, `od_name`, `od_card`, `or_id`) VALUES
+	(1, '曾女生', '410225200405062542', 1);
 /*!40000 ALTER TABLE `order_details` ENABLE KEYS */;
 
 
@@ -360,15 +387,17 @@ CREATE TABLE IF NOT EXISTS `position` (
   PRIMARY KEY (`pos_id`),
   KEY `FK__manager` (`man_id`),
   CONSTRAINT `FK__manager` FOREIGN KEY (`man_id`) REFERENCES `manager` (`man_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='职位表';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='职位表';
 
--- 正在导出表  homestay.position 的数据：~2 rows (大约)
+-- 正在导出表  homestay.position 的数据：~5 rows (大约)
 DELETE FROM `position`;
 /*!40000 ALTER TABLE `position` DISABLE KEYS */;
 INSERT INTO `position` (`pos_id`, `pos_name`, `man_id`) VALUES
 	(1, '主管', 1),
 	(2, '财务经理', 2),
-	(3, '测试人员', 1);
+	(3, '测试人员', 1),
+	(4, 'aa', 2),
+	(5, 'ee1', 2);
 /*!40000 ALTER TABLE `position` ENABLE KEYS */;
 
 
@@ -379,11 +408,11 @@ CREATE TABLE IF NOT EXISTS `position_allot` (
   `fun_id` int(11) NOT NULL,
   KEY `FK__function` (`fun_id`),
   KEY `FK_position_allot_position` (`pos_id`),
-  CONSTRAINT `FK__function` FOREIGN KEY (`fun_id`) REFERENCES `function` (`fun_id`),
+  CONSTRAINT `FK__function` FOREIGN KEY (`fun_id`) REFERENCES `functions` (`fun_id`),
   CONSTRAINT `FK_position_allot_position` FOREIGN KEY (`pos_id`) REFERENCES `position` (`pos_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- 正在导出表  homestay.position_allot 的数据：~0 rows (大约)
+-- 正在导出表  homestay.position_allot 的数据：~12 rows (大约)
 DELETE FROM `position_allot`;
 /*!40000 ALTER TABLE `position_allot` DISABLE KEYS */;
 INSERT INTO `position_allot` (`pos_id`, `fun_id`) VALUES
@@ -408,25 +437,35 @@ CREATE TABLE IF NOT EXISTS `power` (
   `pow_id` int(11) NOT NULL AUTO_INCREMENT,
   `pow_name` varchar(50) NOT NULL,
   `pow_url` varchar(50) NOT NULL,
+  `power_ids` int(11) DEFAULT NULL,
   PRIMARY KEY (`pow_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='模块表';
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='模块表';
 
--- 正在导出表  homestay.power 的数据：~11 rows (大约)
+-- 正在导出表  homestay.power 的数据：~21 rows (大约)
 DELETE FROM `power`;
 /*!40000 ALTER TABLE `power` DISABLE KEYS */;
-INSERT INTO `power` (`pow_id`, `pow_name`, `pow_url`) VALUES
-	(1, '部门管理', '1'),
-	(2, '员工管理', '1'),
-	(3, '账号管理', '1'),
-	(4, '职位分配', '1'),
-	(5, '权限管理', '1'),
-	(6, '客户管理', '1'),
-	(7, '房间管理', '1'),
-	(8, '民宿类型', '1'),
-	(9, '订单管理', '1'),
-	(10, '平台流水管理', '1'),
-	(11, '评价管理', '1'),
-	(12, '职位权限关联', '1');
+INSERT INTO `power` (`pow_id`, `pow_name`, `pow_url`, `power_ids`) VALUES
+	(1, '部门管理', '1', 0),
+	(2, '员工管理', '1', 0),
+	(3, '账号管理', '1', 0),
+	(4, '职位分配', '1', 0),
+	(5, '权限管理', '1', 0),
+	(6, '客户管理', '1', 0),
+	(7, '房间管理', '1', 0),
+	(8, '民宿类型', '1', 0),
+	(9, '订单管理', '1', 0),
+	(10, '平台流水管理', '1', 0),
+	(11, '评价管理', '1', 0),
+	(12, '职位权限关联', '1', 0),
+	(13, '查看部门', 'manager', 1),
+	(15, '查看账号', 'account', 3),
+	(16, '查看订单', 'orders', 9),
+	(17, '查看评价', 'order_appraise', 11),
+	(18, '分配职位', 'position', 4),
+	(19, '查看员工', 'employee', 2),
+	(20, '查看客户', 'client', 6),
+	(21, '查看类型', 'room_type', 8),
+	(22, '查看房间', 'house', 7);
 /*!40000 ALTER TABLE `power` ENABLE KEYS */;
 
 
@@ -441,7 +480,7 @@ CREATE TABLE IF NOT EXISTS `power_allot` (
   CONSTRAINT `FK_power_allot_position` FOREIGN KEY (`pos_id`) REFERENCES `position` (`pos_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='职位功能关联表';
 
--- 正在导出表  homestay.power_allot 的数据：~1 rows (大约)
+-- 正在导出表  homestay.power_allot 的数据：~33 rows (大约)
 DELETE FROM `power_allot`;
 /*!40000 ALTER TABLE `power_allot` DISABLE KEYS */;
 INSERT INTO `power_allot` (`pos_id`, `pow_id`) VALUES
@@ -468,7 +507,16 @@ INSERT INTO `power_allot` (`pos_id`, `pow_id`) VALUES
 	(3, 9),
 	(3, 10),
 	(3, 11),
-	(3, 12);
+	(3, 12),
+	(1, 13),
+	(1, 15),
+	(1, 16),
+	(1, 17),
+	(1, 18),
+	(1, 19),
+	(1, 20),
+	(1, 21),
+	(1, 22);
 /*!40000 ALTER TABLE `power_allot` ENABLE KEYS */;
 
 
@@ -502,7 +550,7 @@ CREATE TABLE IF NOT EXISTS `relevance` (
   CONSTRAINT `FK__position` FOREIGN KEY (`pos_id`) REFERENCES `position` (`pos_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='用户职位关联表';
 
--- 正在导出表  homestay.relevance 的数据：~2 rows (大约)
+-- 正在导出表  homestay.relevance 的数据：~3 rows (大约)
 DELETE FROM `relevance`;
 /*!40000 ALTER TABLE `relevance` DISABLE KEYS */;
 INSERT INTO `relevance` (`acc_id`, `pos_id`) VALUES
@@ -532,18 +580,18 @@ DELETE FROM `rent_record`;
 /*!40000 ALTER TABLE `rent_record` ENABLE KEYS */;
 
 
--- 导出  表 homestay.Room_type 结构
+-- 导出  表 homestay.room_type 结构
 DROP TABLE IF EXISTS `room_type`;
 CREATE TABLE IF NOT EXISTS `room_type` (
   `rt_id` int(11) NOT NULL AUTO_INCREMENT,
   `rt_name` varchar(50) NOT NULL,
   `rt_rec` varchar(50) NOT NULL,
   PRIMARY KEY (`rt_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='房间类型表';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='房间类型表';
 
--- 正在导出表  homestay.Room_type 的数据：~0 rows (大约)
+-- 正在导出表  homestay.room_type 的数据：~9 rows (大约)
 DELETE FROM `room_type`;
-/*!40000 ALTER TABLE `Room_type` DISABLE KEYS */;
+/*!40000 ALTER TABLE `room_type` DISABLE KEYS */;
 INSERT INTO `room_type` (`rt_id`, `rt_name`, `rt_rec`) VALUES
 	(1, '民居', 'aaaaaaaaaaa'),
 	(2, '公寓', 'aaaaaaaaaaa'),
@@ -551,8 +599,10 @@ INSERT INTO `room_type` (`rt_id`, `rt_name`, `rt_rec`) VALUES
 	(4, '四合院', 'aaaaaaaaaaa'),
 	(5, '农家院', 'aaaaaaaaaaa'),
 	(6, '客栈', 'aaaaaaaaaaa'),
-	(7, '其它', 'aaaaaaaaaaa');
-/*!40000 ALTER TABLE `Room_type` ENABLE KEYS */;
+	(7, '其它', 'aaaaaaaaaaa'),
+	(8, 'aa', '11'),
+	(9, 'aa', 'aa');
+/*!40000 ALTER TABLE `room_type` ENABLE KEYS */;
 
 
 -- 导出  表 homestay.rule 结构
@@ -587,7 +637,7 @@ CREATE TABLE IF NOT EXISTS `water` (
   `wat_state` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`wat_id`),
   KEY `FK_water_order` (`or_id`),
-  CONSTRAINT `FK_water_order` FOREIGN KEY (`or_id`) REFERENCES `order` (`or_id`)
+  CONSTRAINT `FK_water_order` FOREIGN KEY (`or_id`) REFERENCES `orders` (`or_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='平台流水';
 
 -- 正在导出表  homestay.water 的数据：~0 rows (大约)
