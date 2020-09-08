@@ -2,10 +2,6 @@ package com.aaa.controller;
 
 import com.aaa.dao.EmployeeDao;
 import com.aaa.entity.Employee;
-import com.aaa.util.PageHelpers;
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,6 +30,7 @@ public class EmployeeController {
     @RequestMapping("employee_update")
     @ResponseBody
     public int update(Employee employee){
-        return employeeDao.updateByPrimaryKey(employee);
+        System.out.println(employee);
+        return employeeDao.update(employee);
     }
 }

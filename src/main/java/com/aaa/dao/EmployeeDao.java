@@ -3,6 +3,7 @@ package com.aaa.dao;
 import com.aaa.entity.Employee;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import tk.mybatis.mapper.common.Mapper;
 @org.apache.ibatis.annotations.Mapper
 public interface EmployeeDao extends Mapper<Employee> {
@@ -12,4 +13,8 @@ public interface EmployeeDao extends Mapper<Employee> {
 
     @Select("select count(emp_id) from employee")
     public int totalCount();
+
+    @Update("update employee set emp_name=#{emp_name},emp_sex=#{emp_sex},emp_age=#{emp_age},emp_phone=#{emp_phone},emp_address=#{emp_address},\n" +
+            "emp_card=#{emp_card},dimission=#{dimission} where emp_id=#{emp_id}")
+    Integer update(Employee employee);
 }
