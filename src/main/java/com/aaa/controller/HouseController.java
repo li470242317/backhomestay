@@ -19,7 +19,19 @@ public class HouseController {
 
     @RequestMapping("house_listAll")
     @ResponseBody
-    public List<Map<String,Object>> listAll(){
-        return houseDao.listAll();
+    public List<Map<String,Object>> listAll(String hou_name) {
+        if (hou_name==null||hou_name==""){
+            return houseDao.listAll();
+        }else {
+            return houseDao.listname(hou_name);
+        }
+
+    }
+
+    @RequestMapping("www")
+    @ResponseBody
+    public String Aaa(){
+        System.out.println("22222222222222222222");
+        return "ol";
     }
 }

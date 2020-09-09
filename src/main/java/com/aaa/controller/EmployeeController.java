@@ -18,8 +18,12 @@ public class EmployeeController {
 
     @RequestMapping("employee_query")
     @ResponseBody
-    public List<Employee> query(){
-        return employeeDao.selectAll();
+    public List<Employee> query(String emp_name){
+        if(emp_name==null||emp_name==""){
+        return employeeDao.selectAll();}
+        else {
+            return employeeDao.listname(emp_name);
+        }
     }
     @RequestMapping("employee_add")
     @ResponseBody
