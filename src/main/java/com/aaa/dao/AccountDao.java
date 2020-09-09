@@ -25,4 +25,6 @@ public interface AccountDao extends tk.mybatis.mapper.common.Mapper<Account> {
     Integer updatePwd(Account account);
     @Select("select * from account a,relevance r where a.acc_id=r.acc_id and a.acc_name=#{acc_name} and a.acc_pwd=#{acc_pwd}")
     public List<Map<String,Object>> Login(String acc_name, String acc_pwd);
+    @Select("select acc_name from account")
+    public List<Account> queryname();
 }

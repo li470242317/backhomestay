@@ -26,6 +26,12 @@ public class ManagerController {
     public List<Manager> query(){
         return managerDao.selectAll();
     }
+    @RequestMapping("queryname")
+    @ResponseBody
+    public List<Manager> queryname(){
+        System.out.println(managerDao.man_name());
+        return managerDao.man_name();
+    }
     @RequestMapping("manager_add")
     @ResponseBody
     public int add(Manager manager){

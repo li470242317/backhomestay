@@ -51,4 +51,9 @@ public class PositionController {
         }
         return count;
     }
+    @RequestMapping("queryname")
+    @ResponseBody
+    public List<Position> queryname(Integer man_id){
+        return positionDao.queryname(man_id);
+    }
 }

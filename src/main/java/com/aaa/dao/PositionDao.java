@@ -18,7 +18,7 @@ public interface PositionDao extends Mapper<Position> {
     @Insert("insert into position (pos_name,man_id) values (#{pos_name},#{man_id})")
     Integer position_add(Position position);
 
-    @Update("update position set pos_name=#{pos_name},man_id=#{man_id} where pos_id=#{pos_id}")
+    @Update("update position set pos_name=#{pos_name} where pos_id=#{pos_id}")
     Integer position_update(Position position);
     @Select("\n" +
             "select poa.pow_id,po.pow_name from  \n" +
@@ -30,4 +30,6 @@ public interface PositionDao extends Mapper<Position> {
     Integer deleteId(Integer pos_id);
     @Insert("insert into power_allot (pos_id,pow_id) values (#{pos_id},#{pow_id})")
     Integer saveId(Integer pos_id,Integer pow_id);
+    @Select("select pos_name from position where man_id=#{man_id}")
+    List<Position> queryname(Integer man_id);
 }

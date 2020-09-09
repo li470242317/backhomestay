@@ -18,8 +18,14 @@ public class OrdersController {
     OrdersDao ordersDao;
     @RequestMapping("orders_query")
     @ResponseBody
-    public List<Map<String,Object>> query(){
-        return ordersDao.query();
+    public List<Map<String,Object>> query(Integer or_state){
+        System.out.println(or_state);
+        if(or_state!=null){
+            return ordersDao.querystate(or_state);
+        }else {
+            return ordersDao.query();
+        }
+
     }
 
 }

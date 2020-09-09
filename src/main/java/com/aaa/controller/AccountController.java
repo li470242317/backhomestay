@@ -53,4 +53,9 @@ public class AccountController {
     public int  updatePwd(Account account){
         return accountDao.updatePwd(account);
     }
+    @RequestMapping("queryname")
+    @ResponseBody
+    public List<Account>  queryname(){
+        return accountDao.queryname();
+    }
 }
